@@ -1,8 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html ng-app='AdminUtilityApp'>
 <head>
-    <title>Welcome</title>
+    <title>Admin Utility</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+    <script type="text/javascript" src="js/controller/AdminUtilityApp.js"></script>
+    <script type="text/javascript" src="js/controller/AdminLoginController.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
-    Mother Nature !!!!
+<div id="main">
+    <nav class="{{active}}" ng-click="$event.preventDefault()">
+
+        <!-- When a link in the menu is clicked, we set the active variable -->
+        <a href="#/login" class="login" ng-click="active='login'">Login</a>
+        <a href="#/client" class="client" ng-click="active='client'">Client</a>
+        <a href="#/provider" class="login" ng-click="active='provider'">Provider</a>
+    </nav>
+
+    <p ng-hide="active">Welcome to Admin Utility</p>
+</div>
+<div ng-view>
+    <!-- Views are added here at runtime. -->
+</div>
 </body>
 </html>
