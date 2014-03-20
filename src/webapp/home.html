@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="home">
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+<script
+	src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+<script src="js/homePage.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
+	rel="stylesheet">
+
+
+</head>
+<body>
+	<div ng-controller="HomeController" class="menu">
+		<a href="#">Home</a>
+		<accordion close-others="true"> </accordion-group> <accordion-group
+			heading="Client" is-open="false">
+		<p ng-repeat="client in clients">
+			<a href={{client.hrefValue}}>{{client.name}}</a>
+		</p>
+
+		</accordion-group> <accordion-group heading="Providers" is-open="false">
+		<p ng-repeat="provider in providers">
+			<a href={{provider.hrefValue}}>{{provider.name}}</a>
+		</p>
+		</accordion-group> <accordion-group heading="Priorities" is-open="false">
+		<p ng-repeat="priority in priorities">{{priority.name}}</p>
+		</accordion-group> </accordion>
+
+	</div>
+	<div ng-view class="views"></div>
+</body>
+</html>
